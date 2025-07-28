@@ -1,0 +1,36 @@
+﻿<Window x:Class="FUMiniHotelManagement.BookingManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quản lý Booking" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid hiển thị danh sách Booking -->
+        <DataGrid x:Name="dgBookings"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding BookingId}" Width="60"/>
+                <DataGridTextColumn Header="Khách hàng" Binding="{Binding Customer.FullName}" Width="*"/>
+                <DataGridTextColumn Header="Phòng" Binding="{Binding Room.RoomNumber}" Width="100"/>
+                <DataGridTextColumn Header="Check-in" Binding="{Binding CheckInDate}" Width="120"/>
+                <DataGridTextColumn Header="Check-out" Binding="{Binding CheckOutDate}" Width="120"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Nút chức năng -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Thêm" Width="100" Margin="5" Click="AddBooking_Click"/>
+            <Button Content="Sửa" Width="100" Margin="5" Click="BtnEdit_Click"/>
+            <Button Content="Xoá" Width="100" Margin="5" Click="DeleteBooking_Click"/>
+            <Button Content="Đóng" Width="100" Margin="5" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

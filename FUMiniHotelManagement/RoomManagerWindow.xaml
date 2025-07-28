@@ -1,0 +1,31 @@
+﻿<Window x:Class="FUMiniHotelManagement.RoomManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Manage Rooms" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid hiển thị danh sách phòng -->
+        <DataGrid x:Name="dgRooms" AutoGenerateColumns="False" Margin="10" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Phòng" Binding="{Binding RoomId}" Width="*"/>
+                <DataGridTextColumn Header="Số Phòng" Binding="{Binding RoomNumber}" Width="*"/>
+                <DataGridTextColumn Header="Trạng Thái" Binding="{Binding Status}" Width="*"/>
+                <DataGridTextColumn Header="Loại Phòng" Binding="{Binding RoomType.TypeName}" Width="*"/>
+                <DataGridTextColumn Header="Mô tả" Binding="{Binding RoomType.Description}" Width="*"/>
+                <DataGridTextColumn Header="Giá" Binding="{Binding RoomType.PricePerNight}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Nút chức năng -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button x:Name="Add" Content="Thêm" Width="100" Margin="5" Click="Add_Click"/>
+            <Button x:Name="Edit" Content="Sửa" Width="100" Margin="5" Click="Edit_Click"/>
+            <Button x:Name="Delete" Content="Xoá" Width="100" Margin="5" Click="Delete_Click"/>
+            <Button x:Name="Close" Content="Close" Width="100" Margin="5" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
